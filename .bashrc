@@ -1,16 +1,12 @@
-initMise() {
-  if [ -n "$MSYSTEM" ]; then
-    export PATH="$HOME/AppData/Local/mise/shims:$PATH"
-  else
-    eval "$(mise activate bash)"
-  fi
-}
-
 # check if running interactively
 case $- in
     *i*) ;;
-      # non-interactive shell: only init mise(for agents to use tools)
-      *) initMise; return;;
+      # non-interactive: in vscode's tools、agents
+      # add mise shims to PATH
+      # https://mise.jdx.dev/dev-tools/shims.html#mise-activate-shims
+
+      # do nothing
+      *) return;;
 esac
 
 
@@ -25,4 +21,15 @@ cx() { codex "$@"; }
 # init
 eval "$(starship init bash)"
 
-initMise
+
+initMise() {
+  # in Windows
+  if [ -n "$MSYSTEM" ]; then
+    eval "$(mise activate bash)"
+    export PATH="$HOME/AppData/Local/mise/shims:$PATH"
+  else
+    eval "$(mise activate bash)"
+  fi
+}
+
+initMise()
