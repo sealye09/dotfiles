@@ -1,0 +1,15 @@
+[settings]
+# 终端自动检测版本并切换
+idiomatic_version_file_enable_tools = ["node", "npm", "yarn", "pnpm", "python", "uv"]
+
+
+[tools]
+node = "lts"
+python = "3.13.13"
+uv = "latest"
+yarn = "latest"
+pnpm = "latest"
+"npm:@openai/codex" = "latest"
+"npm:lefthook" = "latest"
+"npm:rimraf" = "latest"
+"npm:taze" = "latest"
