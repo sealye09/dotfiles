@@ -21,15 +21,10 @@ cx() { codex "$@"; }
 # init
 eval "$(starship init bash)"
 
-
-initMise() {
-  # in Windows
-  if [ -n "$MSYSTEM" ]; then
-    eval "$(mise activate bash)"
-    export PATH="$HOME/AppData/Local/mise/shims:$PATH"
-  else
-    eval "$(mise activate bash)"
-  fi
-}
-
-initMise()
+# in Windows
+if [ -n "$MSYSTEM" ]; then
+  # eval "$(mise activate bash)"
+  export PATH="$HOME/AppData/Local/mise/shims:$PATH"
+else
+  eval "$(mise activate bash)"
+fi
