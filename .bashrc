@@ -16,6 +16,8 @@ cx()  { codex "$@"; }
 
 # init
 eval "$(starship init bash)"
+
+# add to PATH if use Windwos(not work with agents)
 if [ -n "$MSYSTEM" ]; then
   export PATH="$HOME/AppData/Local/mise/shims:$PATH"
 else
