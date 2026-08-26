@@ -1,20 +1,25 @@
 [user]
 	name = Seal
 	email = yejunhai2001@gmail.com
+
 [http]
 	proxy = 127.0.0.1:7890
 [https]
 	proxy = 127.0.0.1:7890
+
+[init]
+	defaultBranch = main
+
 [core]
 	# set end of line to 'lf'
 	eol = lf
 	ignorecase = false
+
 [date]
 	format = %Y-%m-%d
 
 [log]
 	date = iso-strict-local
-[safe]
-	directory = *
+
 [credential "https://gitee.com"]
 	provider = generic
