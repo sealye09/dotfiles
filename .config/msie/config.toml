@@ -1,15 +1,22 @@
 [settings]
-# 终端自动检测版本并切换
 idiomatic_version_file_enable_tools = ["node", "npm", "yarn", "pnpm", "python", "uv"]
-
 
 [tools]
 node = "lts"
 python = "3.13.13"
+
 uv = "latest"
+
+npm = "latest"
 yarn = "latest"
+pnpm = "latest"
+
 "npm:lefthook" = "latest"
 "npm:rimraf" = "latest"
 "npm:taze" = "latest"
-pnpm = "latest"
+"npm:oxfmt" = "latest"
+"npm:prettier" = "latest"
+"npm:serve" = "latest"
+
 codex = "latest"
+claude-code = { version = "latest", bin = "claude", checksum_expr = '"sha256:" + fromJSON(body).platforms[(os == "macos" ? "darwin" : (os == "windows" ? "win32" : "linux")) + "-" + arch].checksum', checksum_url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{{ version }}/manifest.json", platforms = { windows-x64 = { bin = "claude.exe", url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{{ version }}/win32-x64/claude.exe" } }, url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{{ version }}/windows-x64/claude", version_list_url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/latest" }
