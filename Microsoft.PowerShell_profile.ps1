@@ -14,6 +14,6 @@ New-Alias -Name cc -Value Claude-Code -Force -Option AllScope
 # init
 
 # 1. starship
-Invoke-Expression (&starship init powershell | Out-String)
+Invoke-Expression (&starship init powershell)
 # 2. mise
 (&mise activate pwsh) | Out-String | Invoke-Expression
