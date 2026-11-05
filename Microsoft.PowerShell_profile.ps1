@@ -1,5 +1,6 @@
 # need edit $profile in pwsh
 
+
 # alias
 function Get-GitCommitMessage { git commit -m $args }
 New-Alias -Name gcm -Value Get-GitCommitMessage -Force -Option AllScope
@@ -8,13 +9,18 @@ New-Alias -Name gaa -Value Get-GitAddAll -Force -Option AllScope
 # cc
 function Claude-Code { claude $args }
 New-Alias -Name cc -Value Claude-Code -Force -Option AllScope
-# codex
-function Codex { claude $args }
-New-Alias -Name cx -Value Codex -Force -Option AllScope
 
 
-# starship init
-Invoke-Expression (starship init powershell)
+# init
 
-# mise init
-(&mise activate pwsh) | Out-String | Invoke-Expression
+# 1. starship
+Invoke-Expression (&starship init powershell | Out-String)
+
+# 2. mise
+if (-not (Test-Path $PROFILE)) {
+    New-Item -ItemType File -Path $PROFILE -Force | Out-Null
+}
+$activation = '(&mise activate pwsh) | Out-String | Invoke-Expression'
+if (-not (Select-String -Path $PROFILE -SimpleMatch $activation -Quiet)) {
+    Add-Content $PROFILE $activation
+}
