@@ -15,12 +15,5 @@ New-Alias -Name cc -Value Claude-Code -Force -Option AllScope
 
 # 1. starship
 Invoke-Expression (&starship init powershell | Out-String)
-
 # 2. mise
-if (-not (Test-Path $PROFILE)) {
-    New-Item -ItemType File -Path $PROFILE -Force | Out-Null
-}
-$activation = '(&mise activate pwsh) | Out-String | Invoke-Expression'
-if (-not (Select-String -Path $PROFILE -SimpleMatch $activation -Quiet)) {
-    Add-Content $PROFILE $activation
-}
+(&mise activate pwsh) | Out-String | Invoke-Expression
