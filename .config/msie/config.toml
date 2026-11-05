@@ -1,17 +1,19 @@
 [settings]
-idiomatic_version_file_enable_tools = ["node", "npm", "yarn", "pnpm", "python", "uv"]
+idiomatic_version_file_enable_tools = ["node", "npm", "yarn", "pnpm", "python", "uv", "go"]
 
 [tools]
 node = "lts"
-python = "3.13.13"
-
-uv = "latest"
-
 npm = "latest"
 yarn = "latest"
 pnpm = "latest"
 
-"npm:lefthook" = "latest"
+
+python = "3.13.13"
+uv = "latest"
+
+go = "latest"
+
+
 "npm:rimraf" = "latest"
 "npm:taze" = "latest"
 "npm:oxfmt" = "latest"
