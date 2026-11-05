@@ -1,16 +1,15 @@
-# check if running interactively
+# If not running interactively, don't do anything
 case $- in
     *i*) ;;
-      # non-interactive: in vscode's tools、agents
-      # add mise shims to PATH
-      # https://mise.jdx.dev/dev-tools/shims.html#mise-activate-shims
-
-      # do nothing
       *) return;;
 esac
 
 
 # alias
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 gcm() { git commit -m "$@"; }           # git commit -m "message"
 gaa() { git add --all "$@"; }           # git add --all
 
@@ -20,11 +19,4 @@ cx() { codex "$@"; }
 
 # init
 eval "$(starship init bash)"
-
-# in Windows
-if [ -n "$MSYSTEM" ]; then
-  # eval "$(mise activate bash)"
-  export PATH="$HOME/AppData/Local/mise/shims:$PATH"
-else
-  eval "$(mise activate bash)"
-fi
+eval "$(mise activate bash)"
