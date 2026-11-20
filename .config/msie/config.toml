@@ -1,32 +1,42 @@
 [settings]
-idiomatic_version_file_enable_tools = ["node", "npm", "yarn", "pnpm", "python", "uv", "go"]
+idiomatic_version_file_enable_tools = [
+  "node",
+  "npm",
+  "yarn",
+  "pnpm",
+  "python",
+  "uv",
+  "go",
+  "java",
+  "rust",
+]
 
 [tools]
 node = "24"
 npm = "latest"
 yarn = "latest"
 pnpm = "latest"
-
-
-python = "3.13.13"
-uv = "latest"
-
-go = "latest"
-"go:github.com/babarot/gomi" = "latest"
-
-
 "npm:rimraf" = "latest"
 "npm:taze" = "latest"
 "npm:oxfmt" = "latest"
 "npm:prettier" = "latest"
 "npm:serve" = "latest"
 "npm:wedecode" = "latest"
-
-
-ripgrep = "latest"
-lefthook = "latest"
-
-
-# agents
 codex = "latest"
 claude-code = { version = "latest", bin = "claude", checksum_expr = '"sha256:" + fromJSON(body).platforms[(os == "macos" ? "darwin" : (os == "windows" ? "win32" : "linux")) + "-" + arch].checksum', checksum_url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{{ version }}/manifest.json", platforms = { windows-x64 = { bin = "claude.exe", url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{{ version }}/win32-x64/claude.exe" } }, url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{{ version }}/windows-x64/claude", version_list_url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/latest" }
+
+
+python = "3.13.13"
+uv = "latest"
+
+rust = { version = "latest", mr_boxington = true }
+cargo-binstall = "latest"
+mr-boxington = "latest"
+ripgrep = "latest"
+
+
+go = "latest"
+"go:github.com/babarot/gomi" = "latest"
+lefthook = "latest"
+
+java = "17"
